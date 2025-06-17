@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>230f2d9a-a269-493b-a107-d0b2b24ed4f9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +14,7 @@
   </ItemGroup>
 
   <Target Name="Tailwind" BeforeTargets="Build">
-    <Exec Command="dotnet tailwindcss -i Styles/input.css -o wwwroot/css/app.css --minify"/>
+    <Exec Command="dotnet tailwindcss -i Styles/input.css -o wwwroot/css/app.css --minify" />
   </Target>
 
 </Project>
