@@ -46,7 +46,12 @@ jobs:
                 dotnet restore
                 # Inyectar la API Key
                 echo "{\"OpenWeather\":{\"Key\":\"${{ secrets.OPENWEATHER_KEY }}\"}}" > SkyCast/appsettings.Production.json
-                dotnet publish SkyCast/SkyCast.csproj -c Release -o publish -p:StaticWebAssetBase=dotmetweathermega
+                dotnet publish SkyCast/SkyCast.csproj -c Release -o publish
+
+            - name: Listar salida
+              run: |
+                echo "Contenido Generado"
+                ls -R publish | head -n 100
 
             # Artifact
             - uses: actions/upload-artifact@v4
@@ -59,5 +64,5 @@ jobs:
               uses: peaceiris/actions-gh-pages@v4
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: .publish/wwwroot
+                publish_dir: SkyCast/publish/wwwroot
                 force_orphan: true
