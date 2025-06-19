@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>230f2d9a-a269-493b-a107-d0b2b24ed4f9</UserSecretsId>
+    <StaticWebAssetBasePath>dotmetweathermega</StaticWebAssetBasePath>
   </PropertyGroup>
 
   <ItemGroup>
