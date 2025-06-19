@@ -46,7 +46,7 @@ jobs:
                 dotnet restore
                 # Inyectar la API Key
                 echo "{\"OpenWeather\":{\"Key\":\"${{ secrets.OPENWEATHER_KEY }}\"}}" > SkyCast/appsettings.Production.json
-                dotnet publish SkyCast/SkyCast.csproj -c Release -o publish
+                dotnet publish SkyCast/SkyCast.csproj -c Release -o publish -p:StaticWebAssetBasePath=dotmetweathermega
 
             - name: Listar salida
               run: |
@@ -66,3 +66,8 @@ jobs:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: publish/wwwroot
                 force_orphan: true
+
+            - name: Show Pages URL
+              run: |
+                REPO_NAME=${GITHUB_REPOSITORY#*/}
+                echo "::notice title=GitHub Pages URL::https://${GITHUB_REPOSITORY_OWNER}.github.io/${REPO_NAME}/"
